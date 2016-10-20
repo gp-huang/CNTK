@@ -331,6 +331,9 @@ namespace CNTK
         std::vector<NDArrayViewPtr>& stripeQuantizationResidues,
         const std::unordered_set<DistributedWorkerDescriptor>& sendToWorkers)
     {
+        if (m_mpi->NumNodesInUse() == 1) // No need to aggregate anything.
+            return;
+
         QuantizedAggregate(
             inValues,
             valueQuantizationResidues,

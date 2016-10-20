@@ -3456,10 +3456,11 @@ namespace CNTK
     };
 
     CNTK_API DistributedTrainerPtr CreateDataParallelDistributedTrainer(DistributedCommunicatorPtr communicator, bool useAsyncBufferedParameterUpdate);
+    CNTK_API DistributedTrainerPtr CreateQuantizedDataParallelDistributedTrainer(DistributedCommunicatorPtr communicator, bool useAsyncBufferedParameterUpdate);
 }
 
-namespace std {
-
+namespace std 
+{
     template <> struct hash<::CNTK::DistributedWorkerDescriptor>
     {
         size_t operator()(const ::CNTK::DistributedWorkerDescriptor& x) const
