@@ -17,7 +17,7 @@ namespace CNTK
 #ifdef CNTK_PARALLEL_TRAINING_SUPPORT
         return MakeSharedObject<QuantizedMPICommunicatorImpl>(zeroThresholdFor1Bit, useQuantizationForSelfStripe, numQuantizationBits);
 #else
-        NOT_SUPPORTED;
+        LogicError("Quantized MPI Communicator is not supported for this build.");
 #endif
     }
 
